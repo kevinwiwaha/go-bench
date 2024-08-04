@@ -79,7 +79,7 @@ var getCmd = &cobra.Command{
 	Long:  `Get benchmark`,
 	Run: func(cmd *cobra.Command, args []string) {
 		rate := vegeta.Rate{Freq: 100, Per: time.Second}
-		duration := 10 * time.Second
+		duration := 60 * time.Second
 		targeter := NewGetCustomTargeter()
 		attacker := vegeta.NewAttacker()
 
@@ -89,6 +89,7 @@ var getCmd = &cobra.Command{
 		}
 		metrics.Close()
 		fmt.Printf("99th percentile: %s\n", metrics.Latencies.P99)
+		fmt.Printf("95th percentile: %s\n", metrics.Latencies.P95)
 		fmt.Println("Status Error", metrics.Errors)
 		fmt.Println("Status Success", metrics.StatusCodes)
 	},

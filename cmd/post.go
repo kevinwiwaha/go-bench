@@ -18,7 +18,7 @@ func NewPostCustomTargeter() vegeta.Targeter {
 		}
 
 		tgt.Method = "POST"
-		tgt.URL = "http://server-savings-service-tpe.service.i.gojek.gcp/internal/debug/benchmark"
+		tgt.URL = "http://localhost:8000/internal/debug/benchmark"
 
 		return nil
 	}
@@ -41,6 +41,7 @@ var postCmd = &cobra.Command{
 		}
 		metrics.Close()
 		fmt.Printf("99th percentile: %s\n", metrics.Latencies.P99)
+		fmt.Printf("95th percentile: %s\n", metrics.Latencies.P95)
 		fmt.Println("Status Error", metrics.Errors)
 		fmt.Println("Status Success", metrics.StatusCodes)
 	},
