@@ -18,7 +18,7 @@ func NewPostCustomTargeter() vegeta.Targeter {
 		}
 
 		tgt.Method = "POST"
-		tgt.URL = "http://localhost:8000/internal/debug/benchmark"
+		tgt.URL = "http://server-savings-service-tpe.service.i.gojek.gcp/internal/debug/benchmark"
 
 		return nil
 	}
