@@ -40,6 +40,7 @@ var postCmd = &cobra.Command{
 			metrics.Add(res)
 		}
 		metrics.Close()
+		fmt.Printf("Rate: %v\n", metrics.Rate)
 		fmt.Printf("99th percentile: %s\n", metrics.Latencies.P99)
 		fmt.Printf("95th percentile: %s\n", metrics.Latencies.P95)
 		fmt.Println("Status Error", metrics.Errors)
