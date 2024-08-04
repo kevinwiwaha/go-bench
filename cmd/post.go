@@ -30,8 +30,8 @@ var postCmd = &cobra.Command{
 	Short: "Post Benchmark",
 	Long:  `Post benchmark.`,
 	Run: func(cmd *cobra.Command, args []string) {
-		rate := vegeta.Rate{Freq: 100, Per: time.Second}
-		duration := 60 * time.Second
+		rate := vegeta.Rate{Freq: 300, Per: time.Second}
+		duration := 60 * 5 * time.Second
 		targeter := NewPostCustomTargeter()
 		attacker := vegeta.NewAttacker()
 
