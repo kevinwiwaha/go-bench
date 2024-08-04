@@ -78,7 +78,7 @@ var getCmd = &cobra.Command{
 	Short: "Get benchmark",
 	Long:  `Get benchmark`,
 	Run: func(cmd *cobra.Command, args []string) {
-		rate := vegeta.Rate{Freq: 300, Per: time.Second}
+		rate := vegeta.Rate{Freq: 100, Per: time.Second}
 		duration := 60 * 5 * time.Second
 		targeter := NewGetCustomTargeter()
 		attacker := vegeta.NewAttacker()
