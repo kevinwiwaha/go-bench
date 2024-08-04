@@ -88,8 +88,12 @@ var getCmd = &cobra.Command{
 			metrics.Add(res)
 		}
 		metrics.Close()
+		fmt.Printf("Rate: %vreq/s\n", metrics.Rate)
 		fmt.Printf("99th percentile: %s\n", metrics.Latencies.P99)
 		fmt.Printf("95th percentile: %s\n", metrics.Latencies.P95)
+		fmt.Printf("50 percentile: %s\n", metrics.Latencies.P50)
+		fmt.Printf("Max: %s\n", metrics.Latencies.Max)
+		fmt.Printf("Mean: %s\n", metrics.Latencies.Mean)
 		fmt.Println("Status Error", metrics.Errors)
 		fmt.Println("Status Success", metrics.StatusCodes)
 	},
